@@ -7,6 +7,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.CommandGenericHID;
+import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 /**
   *  Put controller buttons and triggers into here
@@ -14,7 +15,8 @@ import edu.wpi.first.wpilibj2.command.button.CommandGenericHID;
   */
 
 public class RobotContainer {
-
-    XboxController xboxController;
-  
+ 
+ XboxController xboxController;
+ 
+ 
 }
