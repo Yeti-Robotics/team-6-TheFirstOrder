@@ -75,8 +75,6 @@ public class CommandSwerveDrivetrain extends SwerveDrivetrain implements Subsyst
                             -DRIVETRAIN_TRACKWIDTH_METERS / 2.0)
             );
 
-    private final RobotDataPublisher<Pose2d> posePublisher = new RobotDataPublisher<>();
-
     public CommandSwerveDrivetrain(SwerveDrivetrainConstants driveTrainConstants, double OdometryUpdateFrequency, SwerveModuleConstants... modules) {
         super(driveTrainConstants, OdometryUpdateFrequency, modules);
         configurePathPlanner();
@@ -249,9 +247,5 @@ public class CommandSwerveDrivetrain extends SwerveDrivetrain implements Subsyst
         double distance = relativeSpeaker.getTranslation().getNorm();
         SmartDashboard.putNumber("distance", distance);
         SmartDashboard.putNumber("gyro spin rate", getPigeon2().getRate());
-    }
-
-    public RobotDataPublisher<Pose2d> observablePose() {
-        return posePublisher;
     }
 }
