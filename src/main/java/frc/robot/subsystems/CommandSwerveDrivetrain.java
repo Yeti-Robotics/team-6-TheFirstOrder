@@ -205,7 +205,7 @@ public class CommandSwerveDrivetrain extends SwerveDrivetrain implements Subsyst
         }
     }
 
-    public void seVoltageLimits() {
+    public void setVoltageLimits() {
         var voltageLimitConfigs = new VoltageConfigs();
 
         for (var module : Modules) {
