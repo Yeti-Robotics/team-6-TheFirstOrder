@@ -57,7 +57,7 @@ public class IntakeSubsystem extends SubsystemBase {
 
     public Command rollIn(double vel) {
         if(vel < 0){
-            //Warning
+            //Warning if negative
         }
 
         return roll(Math.abs(vel));
