@@ -238,7 +238,6 @@ public class CommandSwerveDrivetrain extends SwerveDrivetrain implements Subsyst
                 : new Pose2d(0.0, 2.45, Rotation2d.fromRotations(0));
 
         Pose2d robotPose = this.getState().Pose;
-        posePublisher.publish(robotPose);
         Pose2d relativeSpeaker = robotPose.relativeTo(speakerPose);
         double distance = relativeSpeaker.getTranslation().getNorm();
         SmartDashboard.putNumber("distance", distance);
