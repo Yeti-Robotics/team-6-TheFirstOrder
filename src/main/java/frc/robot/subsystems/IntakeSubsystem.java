@@ -43,7 +43,6 @@ public class IntakeSubsystem extends SubsystemBase {
         SmartDashboard.putData("intake kraken", intakeKraken);
         SmartDashboard.putData("intake beam break", beamBreak);
     }
-
     private void setIntakeSpeed(double speed) {
         intakeKraken.set(speed);
     }
