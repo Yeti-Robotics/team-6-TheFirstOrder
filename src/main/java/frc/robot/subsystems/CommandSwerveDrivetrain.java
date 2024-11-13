@@ -81,8 +81,8 @@ public class CommandSwerveDrivetrain extends SwerveDrivetrain implements Subsyst
 
         setDriveCurrentLimits();
         setDriveVoltageLimits();
-        setAzimuthCurrentLimits();
-        setAzimuthVoltageLimits();
+        setCurrentLimits();
+        setVoltageLimits();
 
         if (Utils.isSimulation()) {
             startSimThread();
@@ -95,8 +95,8 @@ public class CommandSwerveDrivetrain extends SwerveDrivetrain implements Subsyst
 
         setDriveCurrentLimits();
         setDriveVoltageLimits();
-        setAzimuthCurrentLimits();
-        setAzimuthVoltageLimits();
+        setCurrentLimits();
+        setVoltageLimits();
 
         publisher = NetworkTableInstance.getDefault()
                 .getStructArrayTopic("SwerveStates", SwerveModuleState.struct).publish();
@@ -133,10 +133,6 @@ public class CommandSwerveDrivetrain extends SwerveDrivetrain implements Subsyst
                 },
 
                 this);
-    }
-
-    public Command applyRequest(Supplier<SwerveRequest> requestSupplier) {
-        return run(() -> this.setControl(requestSupplier.get()));
     }
 
     public Command getAutoPath(String pathName) {
@@ -178,7 +174,7 @@ public class CommandSwerveDrivetrain extends SwerveDrivetrain implements Subsyst
         }
     }
 
-    public void setAzimuthCurrentLimits() {
+    public void setCurrentLimits() {
         var currentLimitConfigs = new CurrentLimitsConfigs();
 
         for (var module : Modules) {
@@ -209,7 +205,7 @@ public class CommandSwerveDrivetrain extends SwerveDrivetrain implements Subsyst
         }
     }
 
-    public void setAzimuthVoltageLimits() {
+    public void seVoltageLimits() {
         var voltageLimitConfigs = new VoltageConfigs();
 
         for (var module : Modules) {
