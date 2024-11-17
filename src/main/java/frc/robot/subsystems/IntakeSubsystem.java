@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-import edu.wpi.first.wpilibj.DoubleSolenoid
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 
 public class IntakeSubsystem extends SubsystemBase {
     private final TalonFX intakeKraken;
@@ -28,6 +28,7 @@ public class IntakeSubsystem extends SubsystemBase {
         intakeKraken = new TalonFX(IntakeConstants.INTAKE_KRAKEN_ID, "canivoreBus");
         var intakeConfigurator = intakeKraken.getConfigurator();
         var configs = new TalonFXConfiguration();
+        pistons = DoubleSolenoid m_doubleSolenoid = new DoubleSolenoid(1, 2);
 
         beamBreak = new DigitalInput(2);
         intakeOccupiedTrigger = new Trigger(this::getBeamBreak);
