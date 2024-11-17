@@ -119,9 +119,5 @@ public class ElevatorSubsystem extends SubsystemBase {
         if (isAtBottom() && elevatorPosition == ElevatorConstants.ElevatorPositions.DOWN) {
             elevatorMotor.setPosition(0.0);
         }
-
-        // Update SmartDashboard
-        SmartDashboard.putData("Elevator Motor", elevatorMotor);
-        SmartDashboard.putData("Magnetic Switch", magSwitch);
     }
 }
