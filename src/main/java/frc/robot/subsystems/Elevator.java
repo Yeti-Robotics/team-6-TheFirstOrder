@@ -25,9 +25,9 @@ public class ElevatorSubsystem extends SubsystemBase {
         public static final double ELEVATOR_P = 45;
         public static final double ELEVATOR_I = 0;
         public static final double ELEVATOR_D = 0;
-        public static final double ELEVATOR_G = 0.0;
-        public static final double ELEVATOR_A = 0.05;
-        public static final double ELEVATOR_V = 8.0;
+        public static final double ELEVATOR_G = 0.12;
+        public static final double ELEVATOR_A = 0.02;
+        public static final double ELEVATOR_V = 6.22;
         public static final double PROFILE_V = 0.2;
         public static final double PROFILE_A = 0.5;
 
