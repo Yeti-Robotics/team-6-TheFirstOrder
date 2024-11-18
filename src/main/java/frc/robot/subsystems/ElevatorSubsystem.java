@@ -16,9 +16,6 @@ public class ElevatorSubsystem extends SubsystemBase {
     private final DigitalInput magSwitch;
     private static ElevatorConstants.ElevatorPositions elevatorPosition = ElevatorConstants.ElevatorPositions.DOWN;
 
-    public class TalonFXConstants{
-        public static final boolean TALON_FUTURE_PROOF = true;
-        public static final String CANIVORE_NAME = "canivoreBus";
     }
 
     public static class ElevatorConstants {
@@ -67,7 +64,7 @@ public class ElevatorSubsystem extends SubsystemBase {
     }
 
     public ElevatorSubsystem() {
-        elevatorMotor = new TalonFX(ElevatorConstants.ELEVATOR_ID, Constants.TalonFXConstants.CANIVORE_NAME);
+        elevatorMotor = new TalonFX(10, "canivoreBus");
         magSwitch = new DigitalInput(9);
 
         // Configure motor
