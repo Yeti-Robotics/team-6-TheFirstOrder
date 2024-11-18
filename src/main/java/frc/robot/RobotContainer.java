@@ -60,9 +60,6 @@ public class RobotContainer {
         PathPlannerLogging.setLogActivePathCallback(poses ->
                 field.getObject("path").setPoses(poses)
         );
-
-        Telemetry logger = new Telemetry(CommandSwerveDrivetrain.MAX_VELOCITY_METERS_PER_SECOND);
-        drivetrain.registerTelemetry(logger::telemeterize);
         
         configureBindings();
 
