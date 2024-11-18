@@ -1,5 +1,6 @@
+//Package
 package frc.robot.subsystems;
-
+//Imports
 import com.ctre.phoenix6.configs.*;
 import com.ctre.phoenix6.controls.MotionMagicExpoVoltage;
 import com.ctre.phoenix6.hardware.TalonFX;
@@ -10,7 +11,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-
+//Subsystem Class
 public class ElevatorSubsystem extends SubsystemBase {
     private final TalonFX elevatorMotor;
     private final DigitalInput magSwitch;
@@ -20,7 +21,7 @@ public class ElevatorSubsystem extends SubsystemBase {
         public static final boolean TALON_FUTURE_PROOF = true;
         public static final String CANIVORE_NAME = "canivoreBus";
     }
-
+//Constants Class
     public static class ElevatorConstants {
         public static final int STAGES = 3;
         public static final double ELEVATOR_DISTANCE_PER_PULSE = 1; // Placeholder
@@ -91,7 +92,7 @@ public class ElevatorSubsystem extends SubsystemBase {
     public void goDown(double speed) {
         elevatorMotor.set(-Math.abs(speed));
     }
-
+//Stops
     public void stop() {
         elevatorMotor.stopMotor();
     }
@@ -109,11 +110,11 @@ public class ElevatorSubsystem extends SubsystemBase {
         }
         elevatorMotor.setControl(control);
     }
-
+//Elevator Moves to Position
     public Command moveToPositionCommand(ElevatorConstants.ElevatorPositions position) {
         return runOnce(() -> moveToPosition(position));
     }
-
+//Elevator Goes Down
     public Command goDownCommand(double speed) {
         return startEnd(() -> goDown(speed), this::stop);
     }
