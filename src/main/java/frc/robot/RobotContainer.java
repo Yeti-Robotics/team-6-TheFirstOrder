@@ -60,6 +60,9 @@ public class RobotContainer {
         PathPlannerLogging.setLogActivePathCallback(poses ->
                 field.getObject("path").setPoses(poses)
         );
+
+        Telemetry logger = new Telemetry(CommandSwerveDrivetrain.MAX_VELOCITY_METERS_PER_SECOND);
+        drivetrain.registerTelemetry(logger::telemeterize);
         
         configureBindings();
 
@@ -89,8 +92,18 @@ public class RobotContainer {
                                         .withRotationalRate(-joystick.getRightX() * CommandSwerveDrivetrain.MaFxAngularRate)
                 ));
 
-        //
-        joystick.a().onTrue(robotCommands.());
+        // Uses the intake to suck in the game pieces
+        joystick.a().whileTrue(intake.rollIn(1).alongWith(intake.toggleRamp().withTimeout(1).andThen(intake.toggleRamp()));
+
+        // Move elevator down
+        joystick.y().onTrue(elevator.setPositionTo(ElevatorSubsystem.ElevatorConstants.ElevatorPositions.DOWN));
+
+        //Move elevator up
+        joystick.x().onTrue(elevator.setPositionTo(ElevatorSubsystem.ElevatorConstants.ElevatorPositions.UP));
+
+        
+
+        
     }
 
     /**
