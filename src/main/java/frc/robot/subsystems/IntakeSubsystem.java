@@ -17,6 +17,7 @@ public class IntakeSubsystem extends SubsystemBase {
     private final TalonFX intakeKraken;
     private final DigitalInput beamBreak;
     public final Trigger intakeOccupiedTrigger;
+    public final Pistons;
 
     public class IntakeConstants {
         public static final int INTAKE_KRAKEN_ID = 6;
@@ -31,7 +32,7 @@ public class IntakeSubsystem extends SubsystemBase {
         var intakeConfigurator = intakeKraken.getConfigurator();
         var configs = new TalonFXConfiguration();
         //Defines the piston for the Ramp
-        DoubleSolenoid pistons = new DoubleSolenoid(PneumaticsModuleType.REVPH, 1, 2);
+        Pistons = new DoubleSolenoid(1, 2);
 
         beamBreak = new DigitalInput(2);
         intakeOccupiedTrigger = new Trigger(this::getBeamBreak);
@@ -41,6 +42,8 @@ public class IntakeSubsystem extends SubsystemBase {
         intakeKraken.getRotorVelocity().waitForUpdate(IntakeConstants.INTAKE_VELOCITY_STATUS_FRAME);
         intakeKraken.getRotorPosition().waitForUpdate(IntakeConstants.INTAKE_POSITION_STATUS_FRAME);
         intakeConfigurator.apply(configs);
+
+        Pistons.set(Value.kForward);
     }
 
     @Override
@@ -68,13 +71,13 @@ public class IntakeSubsystem extends SubsystemBase {
         return roll(Math.abs(vel));
     }
 
-    public Value RampPosition() {
-        return pistons.get();
+    public Value rampPosition() {
+        return Pistons.get();
     }
 
     //toggles the ramp to go on and off
     public void toggleRamp() {
-        pistons.toggle();
+        Pistons.toggle();
     }
 
     public boolean getBeamBreak() {
