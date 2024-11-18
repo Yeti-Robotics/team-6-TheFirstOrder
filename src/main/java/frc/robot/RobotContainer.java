@@ -89,7 +89,8 @@ public class RobotContainer {
                                         .withRotationalRate(-joystick.getRightX() * CommandSwerveDrivetrain.MaFxAngularRate)
                 ));
 
-        
+        //
+        joystick.a().onTrue(robotCommands.());
     }
 
     /**
