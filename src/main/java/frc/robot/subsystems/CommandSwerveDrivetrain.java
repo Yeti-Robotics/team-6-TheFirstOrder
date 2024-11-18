@@ -33,6 +33,7 @@ import edu.wpi.first.wpilibj2.command.Subsystem;
  * so it can be used in command-based projects easily.
  */
 public class CommandSwerveDrivetrain extends SwerveDrivetrain implements Subsystem {
+    //Constants
     private static final double kSimLoopPeriod = 0.005; // 5 ms
     private final Rotation2d BluePerspectiveRotation = Rotation2d.fromDegrees(0);
     private final Rotation2d RedPerspectiveRotation = Rotation2d.fromDegrees(180);
@@ -135,6 +136,7 @@ public class CommandSwerveDrivetrain extends SwerveDrivetrain implements Subsyst
                 this);
     }
 
+    //To be used if we make auto
     public Command getAutoPath(String pathName) {
         return new PathPlannerAuto(pathName);
     }
@@ -190,6 +192,7 @@ public class CommandSwerveDrivetrain extends SwerveDrivetrain implements Subsyst
         }
     }
 
+    //Set limits on voltage
     public void setDriveVoltageLimits() {
         var voltageLimitConfigs = new VoltageConfigs();
 
