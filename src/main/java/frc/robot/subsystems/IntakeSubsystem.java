@@ -25,9 +25,11 @@ public class IntakeSubsystem extends SubsystemBase {
         public static final double INTAKE_VELOCITY_STATUS_FRAME = 0.01;
     }
     public IntakeSubsystem() {
+        //Defines the motor for the intake
         intakeKraken = new TalonFX(IntakeConstants.INTAKE_KRAKEN_ID, "canivoreBus");
         var intakeConfigurator = intakeKraken.getConfigurator();
         var configs = new TalonFXConfiguration();
+        //Defines the piston for the Ramp
         DoubleSolenoid pistons = new DoubleSolenoid(PneumaticsModuleType.REVPH, 1, 2);
 
         beamBreak = new DigitalInput(2);
@@ -69,6 +71,7 @@ public class IntakeSubsystem extends SubsystemBase {
         return pistons.get();
     }
 
+    //toggles the ramp to go on and off
     public void toggleRamp() {
         pistons.toggle();
     }
