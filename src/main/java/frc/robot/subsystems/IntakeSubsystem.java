@@ -28,7 +28,7 @@ public class IntakeSubsystem extends SubsystemBase {
         intakeKraken = new TalonFX(IntakeConstants.INTAKE_KRAKEN_ID, "canivoreBus");
         var intakeConfigurator = intakeKraken.getConfigurator();
         var configs = new TalonFXConfiguration();
-        pistons = DoubleSolenoid m_doubleSolenoid = new DoubleSolenoid(1, 2);
+        DoubleSolenoid pistons = new DoubleSolenoid(PneumaticsModuleType.REVPH, 1, 2);
 
         beamBreak = new DigitalInput(2);
         intakeOccupiedTrigger = new Trigger(this::getBeamBreak);
@@ -61,8 +61,16 @@ public class IntakeSubsystem extends SubsystemBase {
         if(vel < 0){
             //Warning if negative
         }
-
+        
         return roll(Math.abs(vel));
+    }
+
+    public Value RampPosition() {
+        return pistons.get();
+    }
+
+    public void toggleRamp() {
+        pistons.toggle();
     }
 
     public boolean getBeamBreak() {
