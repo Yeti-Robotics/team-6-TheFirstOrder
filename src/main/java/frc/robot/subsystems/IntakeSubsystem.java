@@ -20,8 +20,8 @@ public class IntakeSubsystem extends SubsystemBase {
 
     public class IntakeConstants {
         public static final int INTAKE_KRAKEN_ID = 6;
-        public static final InvertedValue INTAKE_INVERSION = InvertedValue.Clockwise_Positive;
-        public static final NeutralModeValue INTAKE_NEUTRAL_MODE = NeutralModeValue.Brake;
+        public final InvertedValue INTAKE_INVERSION = InvertedValue.Clockwise_Positive;
+        public final NeutralModeValue INTAKE_NEUTRAL_MODE = NeutralModeValue.Brake;
         public static final double INTAKE_POSITION_STATUS_FRAME = 0.05;
         public static final double INTAKE_VELOCITY_STATUS_FRAME = 0.01;
     }
