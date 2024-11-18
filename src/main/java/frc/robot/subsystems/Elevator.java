@@ -16,6 +16,11 @@ public class ElevatorSubsystem extends SubsystemBase {
     private final DigitalInput magSwitch;
     private static ElevatorConstants.ElevatorPositions elevatorPosition = ElevatorConstants.ElevatorPositions.DOWN;
 
+    public class TalonFXConstants{
+        public static final boolean TALON_FUTURE_PROOF = true;
+        public static final String CANIVORE_NAME = "canivoreBus";
+    }
+
     public static class ElevatorConstants {
         public static final int STAGES = 3;
         public static final double ELEVATOR_DISTANCE_PER_PULSE = 1; // Placeholder
